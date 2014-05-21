@@ -36,10 +36,10 @@
 					FB.api('/me', function (response) {
 						console.log(response);
 						$('#fbid').text(response.id);
-						$('#fname').text(response.firstname);
-						$('#lname').text(response.lastname);
-						$('#username').text(response.username);
-						$('#pic').text(response.picture);
+						$('#fname').text(response.first_name);
+						$('#lname').text(response.last_name);
+						$('#username').text(response.username.toString());
+						$('#pic').html(response.picture);
 						console.log('My links is' + response.link);
 						console.log('My Username is' + response.username);
 						console.log('My ID is' + response.id);

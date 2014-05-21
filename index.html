@@ -2,7 +2,8 @@
 <html>
 <head>
 	<meta char-set="utf-8">
-	<title></title>
+	<title>FB TEST</title>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script>
 		window.fbAsyncInit = function() {
 			FB.init({
@@ -34,6 +35,11 @@
 					var accessToken = response.authResponse.accessToken;
 					FB.api('/me', function (response) {
 						console.log(response);
+						$('#fbid').text(response.id);
+						$('#fname').text(response.firstname);
+						$('#lname').text(response.lastname);
+						$('#username').text(response.username);
+						$('#pic').text(response.picture);
 						console.log('My links is' + response.link);
 						console.log('My Username is' + response.username);
 						console.log('My ID is' + response.id);
@@ -44,9 +50,6 @@
                         method: 'share',
                         href: 'https://kangw3n.github.io/facebook/',
                     }, function (response) {});*/
-
-
-
 
                     /*FB.ui({
                         method: 'send',
@@ -63,8 +66,6 @@
 						var str="<img src="+ response.data.url +">";
 						$('body').append(str);
 					});*/
-
-
 
 					/*FB.api('/me/photos', 'post', {
 						name: 'this is a new photo',
@@ -116,6 +117,10 @@
     </script>
 </head>
 <body>
-
+	<div id="fbid"></div>
+	<div id="fname"></div>
+	<div id="lname"></div>
+	<div id="username"></div>
+	<div id="pic"></div>
 </body>
 </html>

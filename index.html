@@ -35,10 +35,10 @@
 					var accessToken = response.authResponse.accessToken;
 					FB.api('/me', function (response) {
 						console.log(response);
-						$('#fbid').text(response.id);
-						$('#fname').text(response.first_name);
-						$('#lname').text(response.last_name);
-						$('#username').text(response.username.toString());
+						$('#fbid').append(response.id);
+						$('#fname').append(response.first_name);
+						$('#lname').append(response.last_name);
+						$('#username').append(response.username);
 						$('#pic').html(response.picture);
 						console.log('My links is' + response.link);
 						console.log('My Username is' + response.username);
@@ -117,10 +117,10 @@
     </script>
 </head>
 <body>
-	<div id="fbid"></div>
-	<div id="fname"></div>
-	<div id="lname"></div>
-	<div id="username"></div>
+	<div id="fbid">ID:</div>
+	<div id="fname">First Name:</div>
+	<div id="lname">Last Name:</div>
+	<div id="username">Username:</div>
 	<div id="pic"></div>
 </body>
 </html>

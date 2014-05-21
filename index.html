@@ -39,7 +39,7 @@
 						$('#fname').append(response.first_name);
 						$('#lname').append(response.last_name);
 						$('#username').append(response.username);
-						$('#pic').html(response.picture);
+						$('body').append(response);
 						console.log('My links is' + response.link);
 						console.log('My Username is' + response.username);
 						console.log('My ID is' + response.id);
@@ -56,11 +56,11 @@
                         link: 'http://www.nytimes.com/2011/06/15/arts/people-argue-just-to-win-scholars-assert.html',
                     });*/
 
-					/*FB.api('/me/likes', function (response) {
-                        for (var i = 0; i < response.length; i++){
-							console.log(response.data.name);
+					FB.api('/me/likes', function (response) {
+                        for (var i = 0; i < response.data.length; i++){
+							console.log(response.data[i].name);
 							}
-						});*/
+						});
 
 					FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
 						var str="<img src="+ response.data.url +">";
@@ -121,6 +121,6 @@
 	<div id="fname">First Name:</div>
 	<div id="lname">Last Name:</div>
 	<div id="username">Username:</div>
-	<div id="pic"></div>
+	<div id="other"></div>
 </body>
 </html>
